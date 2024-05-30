@@ -50,8 +50,9 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(yaricap) {
+  const cevre = 2*pi*yaricap
+  return cevre ;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -64,8 +65,9 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(yaricap , pi) {
+  const alan = pi * Math.pow(yaricap , 2)
+  return alan ;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -89,37 +91,59 @@ function CemberinAlani(/* kodlar buraya */) {
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
-let ucetambolunenler,
-  enkucuk,
-  enbuyuk,
-  ucebolunenlerintoplami,
+
+ 
+  
+ let ucebolunenlerintoplami,
   besyuzdenkucuksayilar,
   siralisayilar,
   tekraredensayilar;
 
 // 3a çözümü
+let enbuyuk = 0
+let enkucuk = 0
+for(let i = 0 ; i < sayilar.length ; i++) {
+  if(sayilar[i] > enbuyuk) {
+    enbuyuk = sayilar[i]
 
-/* kodlar buraya */
+  } else if (sayilar[i] < enkucuk) {
+    enkucuk = sayilar[i]
+  }
+}
 
 // 3b çözümü:
-
-/* kodlar buraya */
+let ucetambolunenler = []
+sayilar.forEach((sayi)=> {
+  if(sayi % 3 === 0) {
+    ucetambolunenler.push(sayi)
+  }
+})
 
 // 3c çözümü:
+ ucebolunenlerintoplami = ucetambolunenler.reduce((toplam , yeni ) => toplam + yeni , 0)
 
-/* kodlar buraya */
 
 // 3d çözümü
 
-/* kodlar buraya */
+ besyuzdenkucuksayilar =sayilar.filter((sayi) => sayi < 500)
 
 // 3e çözümü
+ siralisayilar = besyuzdenkucuksayilar.sort((a,b) => a - b)
 
-/* kodlar buraya */
 
 // 3f çözümü
-
-/* kodlar buraya */
+let tekrarEdenSayilar = []
+let nesne = {}
+for(let sayi of sayilar.toString()) {
+  if(nesne[sayi] === undefined) {
+    nesne[sayi] = 1
+  } else {
+    nesne[sayi]++
+  } 
+  for(let key of nesne) {
+    tekrarEdenSayilar.push(`${key} sayısı ${nesne[key]} kere tekrar edilmiştir`)
+  }
+}
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
